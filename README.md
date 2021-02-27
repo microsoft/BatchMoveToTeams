@@ -15,7 +15,22 @@
 
 ## Limitations
 
-- The script currently does not support the move of Skype onprem users enabled for EV as well as enabling EV capabilities in Teams for moved users. This is currently in testing and will be added soon with a new version of the script.
+- The script currently does not support enabling PSTN calling capabilities in Teams (through Calling Plans or Direct Routing) for moved users. Adding Calling Plan automatic assignment fuctionality is currently in testing and will be added soon with a new version of the script. Direct routing functionality is coming next after that.
+
+## Description
+
+The script will process all users from the input CSV file (InputUsersCsv parameter). 
+There are 2 main parts of the script:
+
+1. **Check pre-requisites** before the move (Use SkipAllPrerequisiteChecks parameter to skip this step). Below are the conditions that will trigger user to NOT be moved to Teams only (checks are performed in the order below):
+   - User does not exist onprem (onprem Get-CsUser fails)
+   - User is located in a particular OU that should be skipped (if user is in the OU specified in $OuToSkip, the acccount won't be moved to Teams)
+   - User is already in o365
+   - Either LineURI attribute is populated onprem or EnterpriseVoiceEnabled onprem attribute is set to True. You can override this by using ForceSkypeEvUsersToTeamsNoEV command line switch. 
+   - User is not licensed for Skype and/or Teams in o365
+2. **Move to Teams only**
+   - Users will be moved in parallel batches (works 10-20 times faster than moving users one by one)
+   - Users initially failed to move will be retried 3 times by default
 
 ## Contributing
 
