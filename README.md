@@ -1,14 +1,21 @@
-# Project
+# Batch Move To Teams
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+> This script is supposed to help large organisations to automate moving their Skype onprem users to Teams. Optimized to work up to 20 times faster on a large number of users in a batch (several thousand users and more) due to parallel processing.
 
-As the maintainer of this project, please make a few updates:
+## Features
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+- Move speed 10-20x faster due to parallel processing
+  The script works 10-20 times faster than a traditional one as it executes user moves in parallel as much as possible (but not exceeding the cloud threshold of max user moves     at a time)
+- Automatic re-try logic for failed to move users
+  For users who failed to move initially (e.g. throttling or some other error) the script will automatically retry them (3 times by default) so you don't have to do it manually
+- Move prerequisite checks
+  Sort out and report users who don't meet the prerequisites so that the identified missing prerequisites can be corrected for those users.
+- Rich reporting capabilities
+  Script provides comprehensive reporting for every action or check and will report each user processing and results at various stages of migration and also a summary of the       results, including how many were moved successfully, how many failed to migrate (grouped by the error message) how many were retried, etc. which is really helpful during the     migration to identify bottlenecks and address issues at an early stage
+
+## Limitations
+
+- The script currently does not support the move of Skype onprem users enabled for EV as well as enabling EV capabilities in Teams for moved users. This is currently in testing and will be added soon with a new version of the script.
 
 ## Contributing
 
