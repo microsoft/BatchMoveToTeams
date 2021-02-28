@@ -71,7 +71,7 @@ testuser3@domain.com</pre>
 ## Example
 
 The below command will move all users specified in the input csv file bypassing any prerequisite check and will skip (not move) users in "OU=DisabledUsers,DC=contoso,DC=com" Organizational Unit in local Active directory
-<code>C:\scripts\teamsmove\MigrateToTeams.ps1 -inputUsersCsv "C:\scripts\teamsmove\userlist.csv" -OuToSkip "OU=DisabledUsers,DC=contoso,DC=com" -SkipAllPrerequisiteChecks </code>
+``` C:\scripts\teamsmove\MigrateToTeams.ps1 -inputUsersCsv "C:\scripts\teamsmove\userlist.csv" -OuToSkip "OU=DisabledUsers,DC=contoso,DC=com" -SkipAllPrerequisiteChecks ```
 
 ## Contributing
 
