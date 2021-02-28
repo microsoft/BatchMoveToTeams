@@ -34,6 +34,17 @@ There are 2 main parts of the script:
    - Users will be moved in parallel batches (works 10-20 times faster than moving users one by one)
    - Users initially failed to move will be retried 3 times by default
 
+## Parameters
+
+#### InputUsersCsv
+  Path to the csv file with users to be moved
+#### ForceSkypeEvUsersToTeamsNoEV
+  By default the script will not move Skype onprem users enabled for Enterprise Voice. If this parameter is used the script will forcefully move those users to Teams without EV functionality
+#### SkipAllPrerequisiteChecks
+  Will not perform any pre-requisite checks and try to move all users specified in the input file
+#### OuToSkip
+  Users located in this Organization Unit in local Active Directory will not be moved to Teams. Can be full OU DN or just a part of it. Wildcards are allowed.
+
 ## Inputs
 
 A CSV file with user UPNs to be moved from Skype onprem to Teams only. "UPN" (without double quotes) must be the first line (header), than each user's UPN value on a separate line. E.g.:
@@ -57,18 +68,10 @@ testuser3@domain.com</pre>
         02/16/2021 22:26:25,PrereqSummary,Ready to move: 4,Pre-reqs not met: 3,Time taken: 00:00:04.3187720
         02/16/2021 22:26:34,MoveSummary,Moved Successfully: 4,Failed to move: 0,Time taken: 00:00:09.3513578</pre>
 
-## Parameters
+## Example
 
-#### InputUsersCsv
-  Path to the csv file with users to be moved
-#### ForceSkypeEvUsersToTeamsNoEV
-  By default the script will not move Skype onprem users enabled for Enterprise Voice. If this parameter is used the script will forcefully move those users to Teams without EV functionality
-#### SkipAllPrerequisiteChecks
-  Will not perform any pre-requisite checks and try to move all users specified in the input file
-#### OuToSkip
-  Users located in this Organization Unit in local Active Directory will not be moved to Teams. Can be full OU DN or just a part of it. Wildcards are allowed.
-
-
+The below command will move all users specified in the input csv file bypassing any prerequisite check and will skip (not move) users in "OU=DisabledUsers,DC=contoso,DC=com" Organizational Unit in local Active directory
+<code>C:\scripts\teamsmove\MigrateToTeams.ps1 -inputUsersCsv "C:\scripts\teamsmove\userlist.csv" -OuToSkip "OU=DisabledUsers,DC=contoso,DC=com" -SkipAllPrerequisiteChecks </code>
 
 ## Contributing
 
