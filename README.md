@@ -36,6 +36,9 @@ There are 2 main parts of the script:
 
 ## Parameters
 
+I think you should use an
+`<addr>` element here instead
+
 #### InputUsersCsv
   File with users to be moved. "UPN" (without double quotes) must be the first line (header), than each user's UPN value on a separate line
 #### ForceSkypeEvUsersToTeamsNoEV
@@ -47,7 +50,11 @@ There are 2 main parts of the script:
 
 ## Inputs
 
-A CSV file with user UPNs to be moved from Skype onprem to Teams only. "UPN" (without double quotes) must be the first line (header), than each user's UPN value on a separate line.
+A CSV file with user UPNs to be moved from Skype onprem to Teams only. "UPN" (without double quotes) must be the first line (header), than each user's UPN value on a separate line. E.g.:
+`UPN
+testuser1@domain.com
+testuser2@domain.com
+testuser3@domain.com`
 
 ## Contributing
 
