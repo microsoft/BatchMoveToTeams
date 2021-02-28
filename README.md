@@ -3,7 +3,6 @@
 This script is supposed to help large organizations to automate moving their Skype onprem users to Teams. Optimized to work up to 20 times faster on a large number of users in a batch (several thousand users and more) due to parallel processing.
 
 ## Features
-
 - **Move speed 10-20x faster due to parallel processing**    
   The script works 10-20 times faster than a traditional one as it executes user moves in parallel as much as possible (but not exceeding the cloud threshold of max user moves     at a time)
 - **Automatic re-try logic for failed to move users**  
