@@ -62,7 +62,7 @@ testuser3@domain.com
 **Log file structure**. Use Excel to easily analyze:
 - Individual user entries:
 ```
-Date/Time, Operation, UPN, Result, Result Details
+    Date/Time, Operation, UPN, Result, Result Details
       e.g.:
         02/16/2021 22:26:23,PrerequisiteCheck,Testmove3@contoso.com,ReadyToMove,User is ready to be moved to Teams
         02/16/2021 22:26:24,PrerequisiteCheck,Testmove4@contoso.com,Skipped,User not found
@@ -70,7 +70,7 @@ Date/Time, Operation, UPN, Result, Result Details
 - Summary entries:
 
 ```
-  Date/Time, Summary Operation, Succeeded #, Failed #, Time Taken
+    Date/Time, Summary Operation, Succeeded #, Failed #, Time Taken
       e.g.:
         02/16/2021 22:26:25,PrereqSummary,Ready to move: 4,Pre-reqs not met: 3,Time taken: 00:00:04.3187720
         02/16/2021 22:26:34,MoveSummary,Moved Successfully: 4,Failed to move: 0,Time taken: 00:00:09.3513578
