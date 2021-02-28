@@ -4,13 +4,13 @@ This script is supposed to help large organizations to automate moving their Sky
 
 ## Features
 
-- **Move speed 10-20x faster due to parallel processing**<br>
+- **Move speed 10-20x faster due to parallel processing**    
   The script works 10-20 times faster than a traditional one as it executes user moves in parallel as much as possible (but not exceeding the cloud threshold of max user moves     at a time)
-- **Automatic re-try logic for failed to move users**<br>
+- **Automatic re-try logic for failed to move users**  
   For users who failed to move initially (e.g. throttling or some other error) the script will automatically retry them (3 times by default) so you don't have to do it manually
--** Move prerequisite checks**<br>
+- **Move prerequisite checks**  
   Sort out and report users who don't meet the prerequisites so that the identified missing prerequisites can be corrected for those users.
-- **Rich reporting capabilities**<br>
+- **Rich reporting capabilities**  
   Script provides comprehensive reporting for every action or check and will report each user processing and results at various stages of migration and also a summary of the       results, including how many were moved successfully, how many failed to migrate (grouped by the error message) how many were retried, etc. which is really helpful during the     migration to identify bottlenecks and address issues at an early stage
 
 ## Limitations
@@ -24,7 +24,7 @@ The script will process all users from the input CSV file (InputUsersCsv paramet
 There are 2 main parts of the script:
 
 1. **Check pre-requisites** before the move (Use SkipAllPrerequisiteChecks parameter to skip this step). 
-   <br />Below are the conditions that will ***trigger user to NOT be moved to Teams only*** (checks are performed in the order below. If a check fails, further cheks in the list won't be performed):
+   Below are the conditions that will ***trigger user to NOT be moved to Teams only*** (checks are performed in the order below. If a check fails, further cheks in the list won't be performed):
    - User does not exist onprem (onprem Get-CsUser fails)
    - If OuToSkip parameter is used, skip processing all users in the specified Active Directory Orgasnizational Unit 
    - User is already hosted in o365 (HostingProvider is sipfed.online.lync.com)
