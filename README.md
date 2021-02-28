@@ -25,14 +25,29 @@ There are 2 main parts of the script:
 
 1. **Check pre-requisites** before the move (Use SkipAllPrerequisiteChecks parameter to skip this step). 
    <br />Below are the conditions that will ***trigger user to NOT be moved to Teams only*** (checks are performed in the order below. If a check fails, further cheks in the list won't be performed):
-   - User exists in onprem (onprem Get-CsUser succeeds)
+   - User does not exist onprem (onprem Get-CsUser fails)
    - If OuToSkip parameter is used, skip processing all users in the specified Active Directory Orgasnizational Unit 
-   - User is not already hosted in o365
+   - User is already hosted in o365 (HostingProvider is sipfed.online.lync.com)
    - Either LineURI attribute is populated onprem or EnterpriseVoiceEnabled onprem attribute is set to True. You can override this by using ForceSkypeEvUsersToTeamsNoEV command line switch. 
    - User is not licensed for Skype and/or Teams in o365
 2. **Move to Teams only**
    - Users will be moved in parallel batches (works 10-20 times faster than moving users one by one)
    - Users initially failed to move will be retried 3 times by default
+
+## Parameters
+
+#### InputUsersCsv
+  File with users to be moved. "UPN" (without double quotes) must be the first line (header), than each user's UPN value on a separate line
+#### ForceSkypeEvUsersToTeamsNoEV
+  By default the script will not move Skype onprem users enabled for Enterprise Voice. If this parameter is used the script will forcefully move those users to Teams without EV functionality
+#### SkipAllPrerequisiteChecks
+  Will not perform any pre-requisite checks and try to move all users specified in the input file
+#### OuToSkip
+  Users located in this OU in local Active Directory will not be moved to Teams. Can be full OU DN or just a part of it. Wildcards are allowed.
+
+## Inputs
+
+A CSV file with user UPNs to be moved from Skype onprem to Teams only. "UPN" (without double quotes) must be the first line (header), than each user's UPN value on a separate line.
 
 ## Contributing
 
