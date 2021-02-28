@@ -63,16 +63,22 @@ testuser3@domain.com</pre>
         02/16/2021 22:26:23,PrerequisiteCheck,Testmove3@contoso.com,ReadyToMove,User is ready to be moved to Teams
         02/16/2021 22:26:24,PrerequisiteCheck,Testmove4@contoso.com,Skipped,User not found</pre>
 - Summary entries:
-      <pre>Date/Time, Summary Operation, Succeeded #, Failed #, Time Taken
+  <pre>Date/Time, Summary Operation, Succeeded #, Failed #, Time Taken
       e.g.:
         02/16/2021 22:26:25,PrereqSummary,Ready to move: 4,Pre-reqs not met: 3,Time taken: 00:00:04.3187720
         02/16/2021 22:26:34,MoveSummary,Moved Successfully: 4,Failed to move: 0,Time taken: 00:00:09.3513578</pre>
 
 ## Example
 
-The below command will move all users specified in the input csv file bypassing any prerequisite check and will skip (not move) users in "OU=DisabledUsers,DC=contoso,DC=com" Organizational Unit in local Active directory<br>
+The below command will:
+- Move users specified in the input csv file (inputUsersCsv parameter)
+- Bypass any prerequisite check SkipAllPrerequisiteChecks (SkipAllPrerequisiteChecks parameter)
+- Will not skip users enabled for Enterprise Voice in Skype onprem (By default Skype EV users are skipped, unless ForceSkypeEvUsersToTeamsNoEV parameter is specified)
+- Skip users in "OU=DisabledUsers,DC=contoso,DC=com" Organizational Unit in local Active directory (OuToSkip parameter)
+
+<br>
 ```ps
-C:\scripts\teamsmove\MigrateToTeams.ps1 -inputUsersCsv "C:\scripts\teamsmove\userlist.csv" -OuToSkip "OU=DisabledUsers,DC=contoso,DC=com" -SkipAllPrerequisiteChecks
+C:\scripts\teamsmove\MigrateToTeams.ps1 -inputUsersCsv "C:\scripts\teamsmove\userlist.csv" -SkipAllPrerequisiteChecks -ForceSkypeEvUsersToTeamsNoEV -OuToSkip "OU=DisabledUsers,DC=contoso,DC=com" 
 ```
 
 ## Contributing
