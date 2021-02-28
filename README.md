@@ -1,6 +1,6 @@
 # Batch Move To Teams
 
-> This script is supposed to help large organisations to automate moving their Skype onprem users to Teams. Optimized to work up to 20 times faster on a large number of users in a batch (several thousand users and more) due to parallel processing.
+This script is supposed to help large organisations to automate moving their Skype onprem users to Teams. Optimized to work up to 20 times faster on a large number of users in a batch (several thousand users and more) due to parallel processing.
 
 ## Features
 
