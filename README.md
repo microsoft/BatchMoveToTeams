@@ -51,10 +51,10 @@ I think you should use an
 ## Inputs
 
 A CSV file with user UPNs to be moved from Skype onprem to Teams only. "UPN" (without double quotes) must be the first line (header), than each user's UPN value on a separate line. E.g.:
-`UPN
+<pre>UPN
 testuser1@domain.com
 testuser2@domain.com
-testuser3@domain.com`
+testuser3@domain.com</pre>
 
 ## Contributing
 
