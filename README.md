@@ -20,12 +20,14 @@
 ## Description
 
 The script will process all users from the input CSV file (InputUsersCsv parameter). 
+
 There are 2 main parts of the script:
 
-1. **Check pre-requisites** before the move (Use SkipAllPrerequisiteChecks parameter to skip this step). Below are the conditions that will trigger user to NOT be moved to Teams only (checks are performed in the order below):
-   - User does not exist onprem (onprem Get-CsUser fails)
-   - User is located in a particular OU that should be skipped (if user is in the OU specified in $OuToSkip, the acccount won't be moved to Teams)
-   - User is already in o365
+1. **Check pre-requisites** before the move (Use SkipAllPrerequisiteChecks parameter to skip this step). 
+   <br />Below are the conditions that will ***trigger user to NOT be moved to Teams only*** (checks are performed in the order below. If a check fails, further cheks in the list won't be performed):
+   - User exists in onprem (onprem Get-CsUser succeeds)
+   - If OuToSkip parameter is used, skip processing all users in the specified Active Directory Orgasnizational Unit 
+   - User is not already hosted in o365
    - Either LineURI attribute is populated onprem or EnterpriseVoiceEnabled onprem attribute is set to True. You can override this by using ForceSkypeEvUsersToTeamsNoEV command line switch. 
    - User is not licensed for Skype and/or Teams in o365
 2. **Move to Teams only**
