@@ -68,7 +68,6 @@ testuser3@domain.com
         02/16/2021 22:26:24,PrerequisiteCheck,Testmove4@contoso.com,Skipped,User not found
 ```
 - Summary entries:
-
 ```
     Date/Time, Summary Operation, Succeeded #, Failed #, Time Taken
       e.g.:
