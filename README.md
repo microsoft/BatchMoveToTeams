@@ -70,16 +70,15 @@ testuser3@domain.com</pre>
 
 ## Example
 
-The below command will:
+```ps
+BatchMoveToTeams.ps1 -inputUsersCsv "C:\scripts\teamsmove\userlist.csv" -SkipAllPrerequisiteChecks -ForceSkypeEvUsersToTeamsNoEV -OuToSkip "OU=DisabledUsers,DC=contoso,DC=com" 
+```
+
+The above command will:
 - Move users specified in the input csv file (inputUsersCsv parameter)
 - Bypass any prerequisite check SkipAllPrerequisiteChecks (SkipAllPrerequisiteChecks parameter)
 - Will not skip users enabled for Enterprise Voice in Skype onprem (By default Skype EV users are skipped, unless ForceSkypeEvUsersToTeamsNoEV parameter is specified)
 - Skip users in "OU=DisabledUsers,DC=contoso,DC=com" Organizational Unit in local Active directory (OuToSkip parameter)
-
-<br>
-```ps
-C:\scripts\teamsmove\MigrateToTeams.ps1 -inputUsersCsv "C:\scripts\teamsmove\userlist.csv" -SkipAllPrerequisiteChecks -ForceSkypeEvUsersToTeamsNoEV -OuToSkip "OU=DisabledUsers,DC=contoso,DC=com" 
-```
 
 ## Contributing
 
