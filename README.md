@@ -45,7 +45,7 @@ testuser3@domain.com</pre>
 ## Outputs
 
 **Log file to track the progress and results of the move.** The file will be created in the same directory as the input csv file (specified in inputUsersCsv parameter) and have a DateTime stamp appended to its name: `MoveResults$(Get-Date -Format '_MM-dd-yyyy_HH-mm-ss').txt`, e.g.: `c:\scripts\teamsmove\MoveResults_02-09-2021_17-15-01.txt`
-  Log file structure. Use Excel to easily analyze:
+<br>**Log file structure**. Use Excel to easily analyze:
   - Individual user entries:
       Date/Time, Operation, UPN, Result, Result Details
       e.g.:
