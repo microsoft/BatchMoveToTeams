@@ -4,13 +4,13 @@ This script is supposed to help large organizations to automate moving their Sky
 
 ## Features
 
-- Move speed 10-20x faster due to parallel processing
+- **Move speed 10-20x faster due to parallel processing**<br>
   The script works 10-20 times faster than a traditional one as it executes user moves in parallel as much as possible (but not exceeding the cloud threshold of max user moves     at a time)
-- Automatic re-try logic for failed to move users
+- **Automatic re-try logic for failed to move users**<br>
   For users who failed to move initially (e.g. throttling or some other error) the script will automatically retry them (3 times by default) so you don't have to do it manually
-- Move prerequisite checks
+-** Move prerequisite checks**<br>
   Sort out and report users who don't meet the prerequisites so that the identified missing prerequisites can be corrected for those users.
-- Rich reporting capabilities
+- **Rich reporting capabilities**<br>
   Script provides comprehensive reporting for every action or check and will report each user processing and results at various stages of migration and also a summary of the       results, including how many were moved successfully, how many failed to migrate (grouped by the error message) how many were retried, etc. which is really helpful during the     migration to identify bottlenecks and address issues at an early stage
 
 ## Limitations
