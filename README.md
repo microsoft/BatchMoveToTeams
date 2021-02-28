@@ -37,13 +37,13 @@ There are 2 main parts of the script:
 ## Parameters
 
 #### InputUsersCsv
-  Path to the csv file with users to be moved
+- Path to the csv file with users to be moved
 #### ForceSkypeEvUsersToTeamsNoEV
-  By default the script will not move Skype onprem users enabled for Enterprise Voice. If this parameter is used the script will forcefully move those users to Teams without EV functionality
+- By default the script will not move Skype onprem users enabled for Enterprise Voice. If this parameter is used the script will forcefully move those users to Teams without EV functionality
 #### SkipAllPrerequisiteChecks
-  Will not perform any pre-requisite checks and try to move all users specified in the input file
+- Will not perform any pre-requisite checks and try to move all users specified in the input file
 #### OuToSkip
-  Users located in this Organization Unit in local Active Directory will not be moved to Teams. Can be full OU DN or just a part of it. Wildcards are allowed.
+- Users located in this Organization Unit in local Active Directory will not be moved to Teams. Can be full OU DN or just a part of it. Wildcards are allowed.
 
 ## Inputs
 
@@ -75,10 +75,10 @@ BatchMoveToTeams.ps1 -inputUsersCsv "C:\scripts\teamsmove\userlist.csv" -SkipAll
 ```
 
 The above command will:
-- Move users specified in the input csv file (inputUsersCsv parameter)
-- Bypass any prerequisite check SkipAllPrerequisiteChecks (SkipAllPrerequisiteChecks parameter)
-- Will not skip users enabled for Enterprise Voice in Skype onprem (By default Skype EV users are skipped, unless ForceSkypeEvUsersToTeamsNoEV parameter is specified)
-- Skip users in "OU=DisabledUsers,DC=contoso,DC=com" Organizational Unit in local Active directory (OuToSkip parameter)
+- Move users specified in the input csv file (_inputUsersCsv_ parameter)
+- Bypass any prerequisite check SkipAllPrerequisiteChecks (_SkipAllPrerequisiteChecks_ parameter)
+- Will not skip users enabled for Enterprise Voice in Skype onprem (By default Skype EV users are skipped, unless _ForceSkypeEvUsersToTeamsNoEV_ parameter is specified)
+- Skip users in "OU=DisabledUsers,DC=contoso,DC=com" Organizational Unit in local Active directory (_OuToSkip_ parameter)
 
 ## Contributing
 
