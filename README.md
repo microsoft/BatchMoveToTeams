@@ -23,7 +23,7 @@ The script will process all users from the input CSV file (InputUsersCsv paramet
 
 There are 2 main parts of the script:
 
-1. **Check pre-requisites** before the move (Use SkipAllPrerequisiteChecks parameter to skip this step). 
+1. **Check pre-requisites** before the move (Use SkipAllPrerequisiteChecks parameter to skip this step)  
    Below are the conditions that will ***trigger user to NOT be moved to Teams only*** (checks are performed in the order below. If a check fails, further cheks in the list won't be performed):
    - User does not exist onprem (onprem Get-CsUser fails)
    - If OuToSkip parameter is used, skip processing all users in the specified Active Directory Orgasnizational Unit 
@@ -48,27 +48,32 @@ There are 2 main parts of the script:
 ## Inputs
 
 A CSV file with user UPNs to be moved from Skype onprem to Teams only. "UPN" (without double quotes) must be the first line (header), than each user's UPN value on a separate line. E.g.:
-<pre>UPN
+```
+UPN
 testuser1@domain.com
 testuser2@domain.com
-testuser3@domain.com</pre>
+testuser3@domain.com
+```
 
 ## Outputs
 
-**Log file to track the progress and results of the move.** The file will be created in the same directory as the input csv file (specified in inputUsersCsv parameter) and have a DateTime stamp appended to its name: `MoveResults$(Get-Date -Format '_MM-dd-yyyy_HH-mm-ss').txt`, e.g.: `c:\scripts\teamsmove\MoveResults_02-09-2021_17-15-01.txt`
-<br>
+**Log file to track the progress and results of the move.** The file will be created in the same directory as the input csv file (specified in inputUsersCsv parameter) and have a DateTime stamp appended to its name: `MoveResults$(Get-Date -Format '_MM-dd-yyyy_HH-mm-ss').txt`, e.g.: `c:\scripts\teamsmove\MoveResults_02-09-2021_17-15-01.txt`  
 
 **Log file structure**. Use Excel to easily analyze:
 - Individual user entries:
-  <pre>Date/Time, Operation, UPN, Result, Result Details
+```
+Date/Time, Operation, UPN, Result, Result Details
       e.g.:
         02/16/2021 22:26:23,PrerequisiteCheck,Testmove3@contoso.com,ReadyToMove,User is ready to be moved to Teams
-        02/16/2021 22:26:24,PrerequisiteCheck,Testmove4@contoso.com,Skipped,User not found</pre>
+        02/16/2021 22:26:24,PrerequisiteCheck,Testmove4@contoso.com,Skipped,User not found
+```
+```
 - Summary entries:
-  <pre>Date/Time, Summary Operation, Succeeded #, Failed #, Time Taken
+  Date/Time, Summary Operation, Succeeded #, Failed #, Time Taken
       e.g.:
         02/16/2021 22:26:25,PrereqSummary,Ready to move: 4,Pre-reqs not met: 3,Time taken: 00:00:04.3187720
-        02/16/2021 22:26:34,MoveSummary,Moved Successfully: 4,Failed to move: 0,Time taken: 00:00:09.3513578</pre>
+        02/16/2021 22:26:34,MoveSummary,Moved Successfully: 4,Failed to move: 0,Time taken: 00:00:09.3513578
+```
 
 ## Example
 
