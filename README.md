@@ -1,6 +1,6 @@
 # Batch Move To Teams
 
-This script is supposed to help large organizations to automate moving their Skype onprem users to Teams. Optimized to work up to 20 times faster on a large number of users in a batch (several thousand users and more) due to parallel processing.
+This script is supposed to help large organizations to automate moving their Skype onprem users to Teams. Optimized to work up to 20 times faster on a large number of users in a batch (several thousands users and more) due to parallel processing. Eliminates most of manual work for Skype/Teams admin with auto retry logic for failed users and comprehensive reporting.
 
 ## Features
 - **Move speed 10-20x faster due to parallel processing**    
@@ -14,7 +14,7 @@ This script is supposed to help large organizations to automate moving their Sky
 
 ## Limitations
 
-- The script currently does not support enabling PSTN calling capabilities in Teams (through Calling Plans or Direct Routing) for moved users. Adding Calling Plan automatic assignment fuctionality is currently in testing and will be added soon with a new version of the script. Direct routing functionality is coming next after that.
+- The script currently does not support enabling PSTN calling capabilities in Teams (through Calling Plans or Direct Routing) for moved users. 
 
 ## Description
 
