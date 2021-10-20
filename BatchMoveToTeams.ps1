@@ -80,11 +80,12 @@ $MoveResultsLog = "$ScriptWorkDir\MoveResults$(Get-Date -Format '_MM-dd-yyyy_HH-
 
 #Connect to SfBO/Teams powershell. Cred prompt will only be displayed if $cred is blank (credentials haven't been prompted yet). sfbsession will be re-established automatically if it times out
 If (!($cred)) {$cred = get-credential -Message "Enter the credentials of your Teams/Skype admin in o365"}
-if ($sfbSession.Availability -ne "Available") 
+if ($msteamsconnection -eq $null) 
 {
     Import-Module MicrosoftTeams
-    $sfbSession = New-CsOnlineSession -Credential $cred
-    Import-PSSession $sfbSession -AllowClobber
+    #$sfbSession = New-CsOnlineSession -Credential $cred
+    #Import-PSSession $sfbSession -AllowClobber
+    $msteamsconnection = Connect-MicrosoftTeams -Credential $cred
 }
 
 #Number of users to be moved from Skype onprem to Teams only in a single batch in parallel
