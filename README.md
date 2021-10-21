@@ -14,6 +14,7 @@ This script is supposed to help large organizations to automate moving their Sky
 
 ## Limitations
 
+- The script will not work with o365 MFA enforced account
 - The script currently does not support enabling PSTN calling capabilities in Teams (through Calling Plans or Direct Routing) for moved users. 
 
 ## Description
